@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -13,20 +12,19 @@
         .font-brand { font-family: 'Playfair Display', serif; }
         .menu-card { transition: all 0.3s ease; border-radius: 24px; overflow: hidden; background: white; border: 1px solid #f3f4f6; }
         .menu-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
-        .cart-badge { position: absolute; top: -5px; right: -5px; background: #ef4444; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; items-center; justify-content: center; font-size: 10px; font-weight: bold; }
+        .cart-badge { position: absolute; top: -5px; right: -5px; background: #ef4444; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; }
         #admin-panel { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Navigasi -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white">
-                    <i class="fas fa-fire-alt text-xl"></i>
+                    <i class="fas fa-cookie-bite text-xl"></i>
                 </div>
-                <h1 class="text-xl font-bold text-orange-600 font-brand">ANEKA CEMILAN NASIHAH</h1>
+                <h1 class="text-xl font-bold text-orange-600 font-brand">CEMILAN NASIHAH</h1>
             </div>
             <div class="flex items-center gap-4">
                 <button onclick="toggleCart()" class="relative p-2 text-orange-600">
@@ -37,17 +35,15 @@
         </div>
     </nav>
 
-    <!-- Banner Hero -->
     <section class="relative h-[40vh] flex items-center justify-center text-white overflow-hidden">
         <div class="absolute inset-0 bg-black/50 z-10"></div>
-        <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover">
+        <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover">
         <div class="relative z-20 text-center px-4">
-            <h2 class="text-3xl md:text-5xl font-brand mb-2">Cemilan Nasihah</h2>
+            <h2 class="text-3xl md:text-5xl font-brand mb-2">Aneka Cemilan Nasihah</h2>
             <p class="text-orange-300 font-bold text-sm tracking-widest">PANDEGLANG - BANTEN</p>
         </div>
     </section>
 
-    <!-- Daftar Menu -->
     <main class="container mx-auto px-4 py-12">
         <div class="flex justify-between items-end mb-8">
             <div>
@@ -65,24 +61,22 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="drink-container"></div>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-white border-t py-12 text-center px-4">
         <p class="text-sm font-bold text-gray-400 mb-2">ANEKA CEMILAN NASIHAH KHAS PANDEGLANG</p>
         <p class="text-xs text-gray-400 mb-6">Jl. Rocek Barat, Cimanuk, Pandeglang, Banten</p>
         <div class="flex justify-center gap-4 text-gray-400">
-            <a href="https://wa.me/6285716842806"><i class="fab fa-whatsapp"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/6285716842806" target="_blank"><i class="fab fa-whatsapp text-2xl"></i></a>
+            <a href="#"><i class="fab fa-instagram text-2xl"></i></a>
         </div>
     </footer>
 
-    <!-- Sidebar Admin (Dashboard Update Foto) -->
     <div id="admin-panel" class="fixed top-0 left-0 h-full w-full md:w-[350px] bg-white shadow-2xl z-[100] transform -translate-x-full flex flex-col">
         <div class="p-6 bg-gray-900 text-white flex justify-between items-center">
             <h4 class="font-bold">Panel Pemilik</h4>
             <button onclick="toggleAdmin()" class="text-xl">&times;</button>
         </div>
         <div class="flex-grow overflow-y-auto p-6 space-y-6">
-            <p class="text-xs text-gray-500">Masukkan link foto dari ImgBB untuk mengganti gambar menu.</p>
+            <p class="text-xs text-gray-500">Masukkan link foto (Direct Link ImgBB) untuk mengganti gambar.</p>
             <div id="admin-inputs" class="space-y-4"></div>
         </div>
         <div class="p-6 border-t">
@@ -90,7 +84,6 @@
         </div>
     </div>
 
-    <!-- Sidebar Keranjang -->
     <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-[400px] bg-white shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 flex flex-col">
         <div class="p-6 bg-orange-600 text-white flex justify-between items-center">
             <h4 class="font-bold">Pesanan Anda</h4>
@@ -109,20 +102,23 @@
     </div>
 
     <script>
+        // DATA MENU (Sudah diperbaiki format harganya)
         const defaultFoods = [
-            { id: 1, name: "Rengginang Terasi", price: 35000 Isi 50 Pcs, photo: "https://drive.google.com/file/d/185DVW3Gavc6alO8ds--vK3YivTDzvSo9/view?usp=drivesdk" },
-            { id: 2, name: "Rengginang Manis", price: 40000 Isi 50 Pcs, photo: "https://drive.google.com/file/d/1ayHS9Iv8D7lDf87i7D54PD036Oh507vY/view?usp=drivesdk" },
-            { id: 3, name: "Peyek Kacang Hijau", price: 35000 Satu Toples, photo: "https://drive.google.com/file/d/1bUk0MHHTjKo_0KuXh0AvUuPIwP__rz1u/view?usp=drivesdk" },
-            { id: 4, name: "Peyek Udang Rebon", price: 40000 Satu Toples, photo: "https://drive.google.com/file/d/1zhjP6rqjBWyjYBO88QJNM4vDVIAVzFWk/view?usp=drivesdk" },         ];
+            { id: 1, name: "Rengginang Terasi (50 Pcs)", price: 35000, photo: "https://placehold.co/600x400?text=Rengginang+Terasi" },
+            { id: 2, name: "Rengginang Manis (50 Pcs)", price: 40000, photo: "https://placehold.co/600x400?text=Rengginang+Manis" },
+            { id: 3, name: "Peyek Kacang Hijau (Toples)", price: 35000, photo: "https://placehold.co/600x400?text=Peyek+Kacang" },
+            { id: 4, name: "Peyek Udang Rebon (Toples)", price: 40000, photo: "https://placehold.co/600x400?text=Peyek+Udang" }
+        ];
 
         const defaultDrinks = [
-            { id: 101, name: "Jus Alpukat", price: 10000, photo: "https://i.ibb.co.com/Gfp9yxHx/jus-alpukat.png" },
-            { id: 106, name: "Lemon Tea", price: 8000, photo: "https://i.ibb.co.com/fzGLFxLG/lemon-tea.png" },
-            { id: 107, name: "Jus Tomat", price: 8000, photo: "https://i.ibb.co.com/V0bWkY76/jus-tomat.png" },
-            { id: 108, name: "Jus Kelapa", price: 15000, photo: "https://i.ibb.co.com/p6cr0k4M/jus-kelapa.png" },        ];
+            { id: 101, name: "Jus Alpukat", price: 10000, photo: "https://placehold.co/300x300?text=Jus+Alpukat" },
+            { id: 106, name: "Lemon Tea", price: 8000, photo: "https://placehold.co/300x300?text=Lemon+Tea" },
+            { id: 107, name: "Jus Tomat", price: 8000, photo: "https://placehold.co/300x300?text=Jus+Tomat" },
+            { id: 108, name: "Jus Kelapa", price: 15000, photo: "https://placehold.co/300x300?text=Jus+Kelapa" }
+        ];
 
-        let foods = JSON.parse(localStorage.getItem('udin_foods')) || defaultFoods;
-        let drinks = JSON.parse(localStorage.getItem('udin_drinks')) || defaultDrinks;
+        let foods = JSON.parse(localStorage.getItem('nasihah_foods')) || defaultFoods;
+        let drinks = JSON.parse(localStorage.getItem('nasihah_drinks')) || defaultDrinks;
         let cart = [];
 
         function init() {
@@ -135,7 +131,7 @@
             foods.forEach(f => {
                 foodCont.innerHTML += `
                     <div class="menu-card shadow-sm">
-                        <img src="${f.photo}" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400?text=Foto+Menu'">
+                        <img src="${f.photo}" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400?text=Link+Foto+Salah'">
                         <div class="p-5 flex justify-between items-center">
                             <div>
                                 <h4 class="font-bold text-sm mb-1">${f.name}</h4>
@@ -154,7 +150,7 @@
             drinks.forEach(d => {
                 drinkCont.innerHTML += `
                     <div class="menu-card p-2 text-center shadow-sm">
-                        <img src="${d.photo}" class="w-full h-32 object-cover rounded-2xl mb-2" onerror="this.src='https://placehold.co/300x300'">
+                        <img src="${d.photo}" class="w-full h-32 object-cover rounded-2xl mb-2" onerror="this.src='https://placehold.co/300x300?text=Link+Salah'">
                         <h5 class="text-xs font-bold mb-1 truncate">${d.name}</h5>
                         <p class="text-orange-600 font-bold text-xs mb-3">Rp ${d.price.toLocaleString()}</p>
                         <button onclick="add(${d.id},'d')" class="text-orange-600 text-xl"><i class="fas fa-plus-circle"></i></button>
@@ -217,11 +213,11 @@
         }
 
         function saveAdminChanges() {
-            localStorage.setItem('nasihah_snack', JSON.stringify(foods));
+            localStorage.setItem('nasihah_foods', JSON.stringify(foods));
             localStorage.setItem('nasihah_drinks', JSON.stringify(drinks));
             init();
             toggleAdmin();
-            alert("Foto Berhasil Diupdate!");
+            alert("Perubahan berhasil disimpan di browser ini!");
         }
 
         function sendWA() {
@@ -232,7 +228,7 @@
                 text += `• ${i.name} (${i.qty}x)\n`;
                 total += i.price * i.qty;
             });
-            text += `\n*TOTAL PEMBAYARAN: Rp ${total.toLocaleString()}*\n\nAlamat Pengiriman:\n[Isi di sini]`;
+            text += `\n*TOTAL PEMBAYARAN: Rp ${total.toLocaleString()}*\n\nAlamat Pengiriman:\n[Isi Nama & Alamat Lengkap]`;
             window.open(`https://wa.me/6285716842806?text=${encodeURIComponent(text)}`);
         }
 
