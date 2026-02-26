@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mie Tumis Kang Udin - Kademangan</title>
+    <title>Aneka Cemilan Nasihah - Pandeglang</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
                 <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center text-white">
                     <i class="fas fa-fire-alt text-xl"></i>
                 </div>
-                <h1 class="text-xl font-bold text-orange-600 font-brand">Mie Tumis Kang Udin</h1>
+                <h1 class="text-xl font-bold text-orange-600 font-brand">ANEKA CEMILAN NASIHAH</h1>
             </div>
             <div class="flex items-center gap-4">
                 <button onclick="toggleCart()" class="relative p-2 text-orange-600">
@@ -42,8 +42,8 @@
         <div class="absolute inset-0 bg-black/50 z-10"></div>
         <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover">
         <div class="relative z-20 text-center px-4">
-            <h2 class="text-3xl md:text-5xl font-brand mb-2">Mie Tumis Spesial</h2>
-            <p class="text-orange-300 font-bold text-sm tracking-widest">KADEMANGAN - SERPONG</p>
+            <h2 class="text-3xl md:text-5xl font-brand mb-2">Cemilan Nasihah</h2>
+            <p class="text-orange-300 font-bold text-sm tracking-widest">PANDEGLANG - BANTEN</p>
         </div>
     </section>
 
@@ -110,11 +110,10 @@
 
     <script>
         const defaultFoods = [
-            { id: 1, name: "Mie Tumis Seafood Sultan", price: 20000, photo: "https://i.ibb.co.com/HDRnbJW0/1769091977407.png" },
-            { id: 2, name: "Mie Tumis Goreng Seafood Sultan", price: 19000, photo: "https://i.ibb.co.com/Y4qCJqZS/1769092432572.png" },
-            { id: 3, name: "Mie Tumis Goreng Telur Pedas", price: 15000, photo: "https://i.ibb.co.com/gZnQgfGR/1769091713652.png" },
-            { id: 4, name: "Mie Tumis Kuah Pedas", price: 12000, photo: "https://i.ibb.co.com/ymd0DvH8/1769091433977.png" },
-            { id: 5, name: "Mie Kuah Sayur Original", price: 10000, photo: "https://i.ibb.co.com/HDPVYN4L/1769091531490.png" },
+            { id: 1, name: "Rengginang Terasi", price: 35000 Isi 50 Pcs, photo: "https://drive.google.com/file/d/185DVW3Gavc6alO8ds--vK3YivTDzvSo9/view?usp=drivesdk" },
+            { id: 2, name: "Rengginang Manis", price: 40000 Isi 50 Pcs, photo: "https://drive.google.com/file/d/1ayHS9Iv8D7lDf87i7D54PD036Oh507vY/view?usp=drivesdk" },
+            { id: 3, name: "Peyek Kacang Hijau", price: 35000 Satu Toples, photo: "https://drive.google.com/file/d/1bUk0MHHTjKo_0KuXh0AvUuPIwP__rz1u/view?usp=drivesdk" },
+            { id: 4, name: "Peyek Udang Rebon", price: 40000 Satu Toples, photo: "https://drive.google.com/file/d/1zhjP6rqjBWyjYBO88QJNM4vDVIAVzFWk/view?usp=drivesdk" },
         ];
 
         const defaultDrinks = [
@@ -219,8 +218,8 @@
         }
 
         function saveAdminChanges() {
-            localStorage.setItem('udin_foods', JSON.stringify(foods));
-            localStorage.setItem('udin_drinks', JSON.stringify(drinks));
+            localStorage.setItem('nasihah_snack', JSON.stringify(foods));
+            localStorage.setItem('nasihah_drinks', JSON.stringify(drinks));
             init();
             toggleAdmin();
             alert("Foto Berhasil Diupdate!");
@@ -228,7 +227,7 @@
 
         function sendWA() {
             if(cart.length === 0) return;
-            let text = "*PESANAN MIE TUMIS KANG UDIN*\n\n";
+            let text = "*PESANAN ANEKA CEMILAN NASIHAH*\n\n";
             let total = 0;
             cart.forEach(i => {
                 text += `• ${i.name} (${i.qty}x)\n`;
